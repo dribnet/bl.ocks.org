@@ -83,6 +83,7 @@ pre {
 }
 
 .html .value,
+.clojure .string,
 .javascript .string,
 .javascript .regexp {
   color: #756bb1;
@@ -90,6 +91,7 @@ pre {
 
 .html .tag,
 .css .tag,
+.clojure .built_in,
 .javascript .keyword {
   color: #3182bd;
 }
@@ -100,6 +102,8 @@ aside,
 }
 
 .html .doctype,
+.clojure .literal,
+.clojure .number,
 .javascript .literal,
 .javascript .number {
   color: #31a354;
@@ -107,6 +111,7 @@ aside,
 
 .html .attribute,
 .css .attribute,
+.clojure .attribute,
 .javascript .class,
 .javascript .special {
   color: #e6550d;
