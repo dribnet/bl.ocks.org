@@ -84,6 +84,7 @@ pre {
 
 .html .value,
 .clojure .string,
+.coffeescript .string,
 .javascript .string,
 .javascript .regexp {
   color: #756bb1;
@@ -104,6 +105,7 @@ aside,
 .html .doctype,
 .clojure .literal,
 .clojure .number,
+.coffeescript .number,
 .javascript .literal,
 .javascript .number {
   color: #31a354;
