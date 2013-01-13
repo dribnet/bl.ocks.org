@@ -13,6 +13,11 @@ var api = require("./api-cache")({
   "file-cache-size": 1 << 27 // 128M
 });
 
+// a whole day?
+// var cacheExpiresSeconds = 86400;
+// How about just 10 minutes
+var cacheExpiresSeconds = 600;
+
 var server = connect()
     .use(connect.compress())
     .use(connect.static("static"));
@@ -64,9 +69,9 @@ server.use(function(request, response, next) {
         ? 304
         : (content = JSON.stringify(gist), 200);
 
-    response.setHeader("Cache-Control", "max-age=86400");
+    response.setHeader("Cache-Control", "max-age=" + cacheExpiresSeconds);
     response.setHeader("Content-Type", "application/json; charset=utf-8");
-    response.setHeader("Expires", formatDate(new Date(Date.now() + 86400 * 1000), "ddd, dd mmm yyyy HH:MM:ss 'GMT'", true));
+    response.setHeader("Expires", formatDate(new Date(Date.now() + cacheExpiresSeconds * 1000), "ddd, dd mmm yyyy HH:MM:ss 'GMT'", true));
     response.setHeader("Last-Modified", formatDate(gistDate, "ddd, dd mmm yyyy HH:MM:ss 'GMT'", true));
     response.end(content);
   });
@@ -110,9 +115,9 @@ server.use(function(request, response, next) {
         ? (content = null, 304)
         : 200;
 
-    response.setHeader("Cache-Control", "max-age=86400");
+    response.setHeader("Cache-Control", "max-age=" + cacheExpiresSeconds);
     response.setHeader("Content-Type", contentType); // TODO + "; charset=utf-8"
-    response.setHeader("Expires", formatDate(new Date(Date.now() + 86400 * 1000), "ddd, dd mmm yyyy HH:MM:ss 'GMT'", true));
+    response.setHeader("Expires", formatDate(new Date(Date.now() + cacheExpiresSeconds * 1000), "ddd, dd mmm yyyy HH:MM:ss 'GMT'", true));
     response.setHeader("Last-Modified", formatDate(contentDate, "ddd, dd mmm yyyy HH:MM:ss 'GMT'", true));
     response.end(content);
   });
