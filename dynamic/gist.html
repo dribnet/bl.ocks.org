@@ -36,6 +36,10 @@
 
 var gist = location.pathname.substring(1);
 
+analytics.track('GistView', {
+    'gist' : gist
+});
+
 d3.selectAll(".gist-id").text(gist);
 d3.selectAll(".gist-src").attr("src", "/d/" + gist + "/");
 d3.selectAll(".gist-src-href").attr("href", "/d/" + gist + "/");
