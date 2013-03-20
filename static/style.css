@@ -7,6 +7,8 @@ body {
   margin: 1em auto 4em auto;
   position: relative;
   width: 960px;
+  background:#272822;
+  color:#f0f0f0;
 }
 
 h1 {
@@ -58,7 +60,7 @@ li {
 }
 
 a {
-  color: steelblue;
+  color: #ff5555;
 }
 
 a:not(:hover) {
@@ -87,19 +89,20 @@ pre {
 .coffeescript .string,
 .javascript .string,
 .javascript .regexp {
-  color: #756bb1;
+  color: #e0d06b;
 }
 
 .html .tag,
 .css .tag,
 .clojure .built_in,
 .javascript .keyword {
-  color: #3182bd;
+  color: #4dd4eb;
 }
 
 aside,
 .comment {
-  color: #636363;
+  color: #746f5c;
+  font-style: oblique;
 }
 
 .html .doctype,
@@ -108,7 +111,7 @@ aside,
 .coffeescript .number,
 .javascript .literal,
 .javascript .number {
-  color: #31a354;
+  color: #ef3769;
 }
 
 .html .attribute,
@@ -116,7 +119,7 @@ aside,
 .clojure .attribute,
 .javascript .class,
 .javascript .special {
-  color: #e6550d;
+  color: #a4de1d;
 }
 
 iframe {
