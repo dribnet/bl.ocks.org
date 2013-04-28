@@ -40,7 +40,8 @@ module.exports = function(options) {
     // Otherwise, time to fetch a new gist!
     https.get({
       host: "api.github.com",
-      path: "/gists/" + key + "?client_id=" + secret.id + "&client_secret=" + secret.secret
+      path: "/gists/" + key + "?client_id=" + secret.id + "&client_secret=" + secret.secret,
+      headers: {'user-agent': 'Mozilla/5.0 (wtf github?)'}
     }, function(response) {
       var gist = [];
       response.setEncoding("utf-8");
@@ -136,7 +137,8 @@ module.exports = function(options) {
     // Otherwise, fetch the file.
     https.get({
       host: "gist.github.com",
-      path: "/" + username + "/" + id + "/raw/" + sha + "/" + name + "?client_id=" + secret.id + "&client_secret=" + secret.secret
+      path: "/" + username + "/" + id + "/raw/" + sha + "/" + name + "?client_id=" + secret.id + "&client_secret=" + secret.secret,
+      headers: {'user-agent': 'Mozilla/5.0 (wtf github?)'}
     }, function(response) {
       var file = [];
       response
@@ -178,7 +180,8 @@ module.exports = function(options) {
     // Otherwise, time to fetch a new user page!
     https.get({
       host: "api.github.com",
-      path: "/users/" + login + "/gists?page=" + page + "&client_id=" + secret.id + "&client_secret=" + secret.secret
+      path: "/users/" + login + "/gists?page=" + page + "&client_id=" + secret.id + "&client_secret=" + secret.secret,
+      headers: {'user-agent': 'Mozilla/5.0 (wtf github?)'}
     }, function(response) {
       var gists = [];
       response.setEncoding("utf-8");
