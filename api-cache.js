@@ -82,7 +82,7 @@ module.exports = function(options) {
               files: files,
               updated_at: gist.updated_at,
               description: gist.description,
-              user: gist.user ? {login: gist.user.login} : {login: "anonymous"},
+              user: gist.owner ? {login: gist.owner.login} : {login: "anonymous"},
               id: gist.id
             });
 
@@ -136,7 +136,7 @@ module.exports = function(options) {
 
     // Otherwise, fetch the file.
     https.get({
-      host: "gist.github.com",
+      host: "gist.githubusercontent.com",
       path: "/" + username + "/" + id + "/raw/" + sha + "/" + name + "?client_id=" + secret.id + "&client_secret=" + secret.secret,
       headers: {'user-agent': 'Mozilla/5.0 (wtf github?)'}
     }, function(response) {
