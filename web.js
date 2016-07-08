@@ -271,7 +271,7 @@ server.use(function(request, response, next) {
 // /mbostock/raw/0123456789/d39b22ba1ca024287f98c221fd74f39a3f990cdf/file.ext
 server.use(function(request, response, next) {
   var u = url.parse(request.url), r;
-  if (!(r = /^\/([a-zA-Z0-9][a-zA-Z0-9-]*)\/raw\/([0-9]+|[0-9a-f]{20})(?:\/([0-9a-f]{40}))?\/(.*)$/.exec(u.pathname))) return next();
+  if (!(r = /^\/([a-zA-Z0-9][a-zA-Z0-9-]*)\/raw\/([0-9]+|[0-9a-f]{20,40})(?:\/([0-9a-f]{40}))?\/(.*)$/.exec(u.pathname))) return next();
   var login = r[1],
       id = r[2],
       sha = r[3],
