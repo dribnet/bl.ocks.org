@@ -278,7 +278,8 @@ server.use(function(request, response, next) {
       file = decodeURIComponent(r[4]) || "index.html";
 
   api.file(id, sha, file, function(error, gist, content, contentType, contentDate) {
-    if (!error && gist.user.login.toLowerCase() !== login.toLowerCase()) error = 404;
+    // I'm not sure what the point of this was...
+    // if (!error && gist.user.login.toLowerCase() !== login.toLowerCase()) error = 404;
     if (error) {
       response.statusCode = error === 404 ? 404 : 503;
       response.setHeader("Content-Type", "text/plain");
